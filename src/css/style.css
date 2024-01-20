@@ -581,6 +581,7 @@ body {
 }
 
 /* Skeleton */
+
 .avatar-skeleton {
   width: 160px;
   height: 160px;
@@ -619,6 +620,38 @@ text-skeleton {
 
 .profile-skeleton .text-3 {
   width: 70%;
+}
+.repo-skeleton {
+  background-color: var(--alpha-5);
+}
+
+.repo-skeleton .text-skeleton {
+  border-radius: var(--radius-pill);
+  height: 16px;
+}
+.repo-skeleton .text-1 {
+  margin-block: 12px;
+  height: 24px;
+  width: 55%;
+}
+
+.repo-skeleton .text-2 {
+  margin-block: 12px;
+}
+
+.repo-skeleton .text-3 {
+  width: 70%;
+}
+
+.repo-skeleton .card-footer {
+  display: flex;
+  gap: var(--spacing);
+  border-block-start: 1px solid var(--alpha-5);
+}
+
+.repo-skeleton .card-footer .text-skeleton {
+  max-width: 56px;
+  flex-grow: 1;
 }
 
 .skeleton {
