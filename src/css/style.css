@@ -847,6 +847,29 @@ text-skeleton {
   #ERROR
 \*-----------------------------------*/
 
+.error {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height)); /* For Responsiveness*/
+  background-color: var(--background);
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  text-align: center;
+  z-index: 2;
+  display: none;
+}
+
+.error .title-1 {
+  color: var(--alpha-50);
+}
+.error .text {
+  color: var(--alpha-80);
+}
+
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/

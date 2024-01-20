@@ -207,13 +207,13 @@
             >
               Repositories
             </button>
-            <button
+            <!-- <button
               class="tab-btn"
               aria-selected="false"
               role="tab"
-              id="tab-3"
+              id="tab-2"
               tabindex="-1"
-              aria-controls="panel-3"
+              aria-controls="panel-2"
               data-tab-btn
               data-follower-tab-btn
             >
@@ -223,14 +223,14 @@
               class="tab-btn"
               aria-selected="false"
               role="tab"
-              id="tab-4"
+              id="tab-3"
               tabindex="-1"
-              aria-controls="panel-4"
+              aria-controls="panel-3"
               data-tab-btn
               data-following-tab-btn
             >
               Following
-            </button>
+            </button> -->
           </div>
 
           <div
@@ -282,7 +282,7 @@
               <p class="text">Doesn't have any public repositories yet</p>
             </div>
           </div>
-          <div
+          <!-- <div
             class="tab-panel"
             role="tabpanel"
             id="panel-2"
@@ -290,8 +290,14 @@
             tabindex="0"
             data-tab-panel
             data-follower-panel
-            hidden
-          ></div>
+          >
+            <h2 class="sr-only">Followers</h2>
+
+            <div class="error-content">
+              <p class="title-1">Oops! :(</p>
+              <p class="text">Doesn't have any public repositories yet</p>
+            </div>
+          </div>
           <div
             class="tab-panel"
             role="tabpanel"
@@ -301,7 +307,13 @@
             data-tab-panel
             data-following-panel
             hidden
-          ></div>
+          ></div> -->
+        </section>
+
+        <!-- Error -->
+        <section class="error">
+          <p class="title-1">Oops! :(</p>
+          <p class="text">User doesn't exist</p>
         </section>
 
         <!-- <section class="pagination">
