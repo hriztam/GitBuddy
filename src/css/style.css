@@ -305,7 +305,7 @@ body {
 .title-2 {
   font-size: var(--title-2);
   font-weight: var(--weight-semiBold);
-  line-height: 48px;
+  line-height: 24px;
 }
 
 .title-3 {
@@ -411,6 +411,8 @@ body {
   border: 1px solid transparent;
   max-width: max-content;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
   align-items: center;
   line-height: 40px;
@@ -603,6 +605,71 @@ text-skeleton {
 /*-----------------------------------*\
   #PROFILE
 \*-----------------------------------*/
+
+.main {
+  flex-grow: 1;
+  scroll-margin-top: var(--header-height);
+}
+
+.profile {
+  margin-block-end: 24px;
+}
+
+.profile :where(.avatar-circle, .avatar-rounded) {
+  width: 160px;
+}
+
+.profile .title-2 {
+  margin-block: 16px 4px;
+}
+
+.username {
+  line-height: 20px;
+  margin-block-end: 12px;
+}
+
+.profile .bio {
+  margin-block: 12px;
+  max-width: 80ch;
+}
+
+.profile .btn-secondary {
+  max-width: 100%;
+}
+
+.profile-meta {
+  margin-block: 24px;
+}
+
+.profile-meta .meta-item,
+.profile-stats .stats-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block: 8px;
+}
+
+.profile-meta .meta-text {
+  font-size: var(--label-1);
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: var(--transition-short);
+}
+
+.profile-meta .meta-text:where(:hover, :focus-visible):not(:active) {
+  color: var(--primary);
+}
+
+.profile-stats .stats-item {
+  color: var(--surface-variant);
+}
+
+.profile-stats .body {
+  color: var(--on-background);
+  font-weight: var(--weight-medium);
+}
 
 /*-----------------------------------*\
   #TAB
