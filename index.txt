@@ -141,5 +141,3 @@ There is no account with this username yet.
 
 
 #========== FOOTER ==========#
-
-&copy; 2023 codewithsadee
