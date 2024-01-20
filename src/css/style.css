@@ -364,6 +364,7 @@ body {
   border-radius: var(--radius-pill);
   overflow: hidden;
   flex-grow: 1;
+  width: 100%;
 }
 
 .search-field {
@@ -587,6 +588,7 @@ text-skeleton {
   align-items: center;
   gap: 8px;
   flex-grow: 1px;
+  width: 100%;
 }
 
 .header:not(.search-active) .header-search {
