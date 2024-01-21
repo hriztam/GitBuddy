@@ -55,6 +55,7 @@ $searchField.addEventListener("keydown", e => {
 const $profileCard = document.querySelector("[data-profile-card]");
 
 const $repoPanel = document.querySelector("[data-repo-panel]");
+const $repoPagination = document.querySelector("[repo-pagination]");
 
 const $error = document.querySelector("[data-error]");
 
@@ -210,16 +211,32 @@ window.updateProfile = (profileUrl) => {
 updateProfile(apiUrl);
 
 // Repository
+// Add these variables to keep track of pagination state
+let currentPage = 1;
+let repositoriesPerPage = 10; // Default value, you can change it as needed
+const maxRepositoriesPerPage = 100;
+
 const updateRepository = () => {
 
-    fetchData(`${repoUrl}?sort=created&per_page=10`, (data) => {
+    fetchData(`${repoUrl}`, (data) => {
 
         $repoPanel.innerHTML = `<h2 class="sr-only">Repositories</h2>`;
 
         const repositories = data.filter(i => !i.fork);
 
+        const totalPages = Math.ceil(repositories.length / repositoriesPerPage);
+
+        updatePagination(totalPages);
+
+        // Calculate the start and end index based on the current page
+        const startIndex = (currentPage - 1) * repositoriesPerPage;
+        const endIndex = startIndex + repositoriesPerPage;
+
+        // Display repositories for the current page
+        const repositoriesForPage = repositories.slice(startIndex, endIndex);
+
         if (repositories.length) {
-            for (let repo of repositories) {
+            for (let repo of repositoriesForPage) {
 
                 const {
                     name,
@@ -284,3 +301,35 @@ const updateRepository = () => {
         }
     })
 }
+const updatePagination = (totalPages) => {
+    $repoPagination.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const $paginationLink = document.createElement("a");
+        $paginationLink.href = "#";
+        $paginationLink.classList.add("pagination-link");
+        $paginationLink.textContent = i;
+
+        // Add event listener to each pagination link
+        $paginationLink.addEventListener("click", () => {
+            currentPage = i;
+            updateRepository();
+        });
+
+        $repoPagination.appendChild($paginationLink);
+    }
+};
+
+const updateRepositoriesPerPage = (value) => {
+    repositoriesPerPage = parseInt(value);
+    updateRepository();
+};
+
+// Add an event listener for the dropdown to choose repositories per page
+const $repositoriesPerPageDropdown = document.querySelector("[data-drop-down]")
+
+$repositoriesPerPageDropdown.addEventListener("change", (event) => {
+    updateRepositoriesPerPage(event.target.value);
+});
+
+updateRepository();
