@@ -194,6 +194,8 @@ window.updateProfile = (profileUrl) => {
                 <li class="stats-item"><span class="body">${following}</span>Following</li>
             </ul>
         `
+
+        updateRepository();
     }, () => {
         $error.style.display = "grid";
         document.body.style.overflowY = "hidden";
@@ -202,8 +204,83 @@ window.updateProfile = (profileUrl) => {
             <p class="title-1">Oops! :(</p>
             <p class="text">There is no account with this username</p>
         `
-    })
+    });
 }
 
 updateProfile(apiUrl);
 
+// Repository
+const updateRepository = () => {
+
+    fetchData(`${repoUrl}?sort=created&per_page=10`, (data) => {
+
+        $repoPanel.innerHTML = `<h2 class="sr-only">Repositories</h2>`;
+
+        const repositories = data.filter(i => !i.fork);
+
+        if (repositories.length) {
+            for (let repo of repositories) {
+
+                const {
+                    name,
+                    html_url,
+                    description,
+                    private: isPrivate,
+                    language,
+                    stargazers_count: stars,
+                    forks_count
+                } = repo;
+
+                const $repoCard = document.createElement("article")
+                $repoCard.classList.add("card", "repo-card")
+
+                $repoCard.innerHTML = `
+                    <div class="card-body">
+                        <a href="${html_url}" target="_blank" class="card-title">
+                        <h3 class="title-3">${name}</h3>
+                        </a>
+                        ${description ?
+                        `<p class="card-text">${description}</p>` : ""
+                    }
+                        
+
+                        <span class="badge">${isPrivate ? "Private" : "Public"}</span>
+
+                    </div>
+
+                    <div class="card-footer">
+                    ${language ?
+                        ` <div class="meta-item">
+                        <span class="material-symbols-rounded" aria-hidden="true"
+                            >code_blocks</span
+                        >
+                        <span class="span">${language}</span>
+                        </div>` : ""
+                    }
+                        <div class="meta-item">
+                        <span class="material-symbols-rounded" aria-hidden="true"
+                            >star_rate</span
+                        >
+                        <span class="span">${stars}</span>
+                        </div>
+                        <div class="meta-item">
+                        <span class="material-symbols-rounded" aria-hidden="true"
+                            >family_history</span
+                        >
+                        <span class="span">${forks_count}</span>
+                        </div>
+                    </div>
+                `
+
+                $repoPanel.appendChild($repoCard);
+            }
+        } else {
+            $repoPanel.innerHTML = `
+                <div class="error-content">
+                    <p class="title-1">Oops! :(</p>
+                    <p class="text">Doesn't have any public repositories yet</p>
+                </div>
+            `
+        }
+    })
+}
