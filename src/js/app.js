@@ -316,6 +316,10 @@ const updatePagination = (totalPages) => {
             updateRepository();
         });
 
+        if (i === currentPage) {
+            $paginationLink.classList.add("active");
+        }
+
         $repoPagination.appendChild($paginationLink);
     }
 };

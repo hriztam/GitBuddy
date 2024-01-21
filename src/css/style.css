@@ -937,6 +937,16 @@ text-skeleton {
   background-color: var(--surface-1-hover);
 }
 
+.rep-per-page {
+  gap: 8px;
+}
+.dropdown-text {
+  color: var(--on-background);
+}
+.dropdown {
+  font-size: 15px;
+  color: var(--alpha-80);
+}
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
