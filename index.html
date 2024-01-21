@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="./src/css/style.css" />
 
     <!-- link js -->
-    <script src="./src/js/app.js"></script>
+    <script type="module" src="./src/js/app.js"></script>
   </head>
 
   <body>
@@ -184,13 +184,6 @@
             <li class="stats-item"><span class="body">4</span>Followers</li>
             <li class="stats-item"><span class="body">3</span>Following</li>
           </ul>
-
-          <!-- <div class="profile-skeleton">
-            <div class="skeleton avatar-skeleton"></div>
-            <div class="skeleton title-skeleton"></div>
-            <div class="skeleton text-skeleton text-1"></div>
-            <div class="skeleton text-skeleton text-2"></div>
-            <div class="skeleton text-skeleton text-3"></div> -->
         </section>
 
         <!-- Tab -->
@@ -277,20 +270,6 @@
               </div>
             </article>
 
-            <div class="card repo-skeleton">
-              <div class="card-body">
-                <div class="skeleton text-skeleton text-1"></div>
-                <div class="skeleton text-skeleton text-2"></div>
-                <div class="skeleton text-skeleton text-3"></div>
-              </div>
-
-              <div class="card-footer">
-                <div class="skeleton text-skeleton"></div>
-                <div class="skeleton text-skeleton"></div>
-                <div class="skeleton text-skeleton"></div>
-              </div>
-            </div>
-
             <div class="error-content">
               <p class="title-1">Oops! :(</p>
               <p class="text">Doesn't have any public repositories yet</p>
@@ -325,7 +304,7 @@
         </section>
 
         <!-- Error -->
-        <section class="error">
+        <section class="error" data-error>
           <p class="title-1">Oops! :(</p>
           <p class="text">User doesn't exist</p>
         </section>
