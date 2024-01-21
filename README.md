@@ -2,11 +2,19 @@
 
 ### Get your github user info with just one click
 
+## Hosted URL
+https://gitbuddy.netlify.app/
+
 ## Tech Stacks
 
 ### HTML, CSS, JS, REST API
 
 ### Custom CSS is used in this project
+
+### Key Features:-
+1. There is light and dark mode for the project
+2. You can switch between the modes with just one click
+3. Website is reponsive for all devices
 
 ## To run
 
