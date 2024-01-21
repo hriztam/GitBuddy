@@ -907,7 +907,7 @@ text-skeleton {
   #FOOTER
 \*-----------------------------------*/
 
-/* .pagination {
+.pagination {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -917,16 +917,24 @@ text-skeleton {
   margin: 0 5px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  color: #333;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-8);
+  color: var(--alpha-80);
   cursor: pointer;
+  height: 35px;
+  width: 35px;
+  display: grid;
+  place-items: center;
 }
 
 .pagination-link.active {
   background-color: var(--primary);
-  color: #fff;
-} */
+  color: var(--white);
+}
+
+.pagination-link:where(:hover, :focus-visible) {
+  background-color: var(--surface-1-hover);
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES
